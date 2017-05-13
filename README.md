@@ -1,4 +1,4 @@
-# OpenFacePytorch
+# OpenFace for Pytorch
 
 I made a dirty code to use OpenFace in PyTorch.
 I converted '<a href="https://storage.cmusatyalab.org/openface-models/nn4.small2.v1.t7">nn4.small2.v1.t7</a>' to a .hdf5 file using '<a href="https://github.com/deepmind/torch-hdf5">torch-hdf5</a>'.
@@ -14,6 +14,7 @@ nn.Sequential {
 ...
 ```
 Then I manually coded layers in PyTorch (see loadOpenFace.py) with some tentative layers code which may be supported by PyTorch officially laters (SpatialCrossMapLRN_temp.py, adopted from <a href="https://github.com/pytorch/pytorch/blob/master/torch/legacy/nn/SpatialCrossMapLRN.py">PyTorch's nn.legacy</a>).
+The final model is 'openface.pth' (which may need to be renamed to 'openface_nn4_small2_v1.pth'), which can be loaded by codes in loadOpenFace.py.
 
 Please see main section of loadOpenFace.py for how-to-use.
 Simply,
