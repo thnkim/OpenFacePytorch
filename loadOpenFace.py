@@ -179,7 +179,7 @@ class netOpenFace(nn.Module):
         self.resize2 = nn.AvgPool2d(4)
 
         #
-        self.eval()
+        # self.eval()
 
         if useCuda:
             self.cuda(gpuDevice)
