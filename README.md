@@ -19,6 +19,8 @@ The final model is 'openface.pth' (which may need to be renamed to 'openface_nn4
 Please see main section of loadOpenFace.py for how-to-use.
 Simply,
 ```
-net = prepareOpenFace(useCuda=True, gpuDevice=0, useMultiGPU=False).eval()
+# As a default, the network is in evaluation mode.
+# if you want to fine-tune the network, please comment-out line 182 in loadOpenFace.py.
+net = prepareOpenFace(useCuda=True, gpuDevice=0, useMultiGPU=False)
 feature = net(input_tensor)    # input_tensor should be (batch_size, 3, 96, 96)
 ```
