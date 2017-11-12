@@ -231,6 +231,8 @@ if __name__ == '__main__':
     useCuda = True
     if useCuda:
         assert torch.cuda.is_available()
+    else:
+        assert False, 'Sorry, .pth file contains CUDA version of the network only.'
 
     nof = prepareOpenFace()
     nof = nof.eval()
@@ -280,10 +282,13 @@ if __name__ == '__main__':
     I_ = torch.cat(imgs, 0)
     I_ = Variable(I_, requires_grad=False)
     start = time.time()
-    f = nof(I_)
+    f, f_736 = nof(I_)
     print("  + Forward pass took {} seconds.".format(time.time() - start))
     print(f)
-    for i in range(f.size(0) - 1):
-        for j in range(i + 1, f.size(0)):
-            df = f[i] - f[j]
+    for i in range(f_736.size(0) - 1):
+        for j in range(i + 1, f_736.size(0)):
+            df = f_376[i] - f_376[j]
             print(img_paths[i].split('/')[-1], img_paths[j].split('/')[-1], torch.dot(df, df))
+
+    # in OpenFace's sample code, cosine distance is usually used for f (128d).
+    
