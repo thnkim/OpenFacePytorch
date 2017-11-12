@@ -1,4 +1,4 @@
-// This is a simple modification of https://github.com/pytorch/pytorch/blob/master/torch/legacy/nn/SpatialCrossMapLRN.py.
+# This is a simple modification of https://github.com/pytorch/pytorch/blob/master/torch/legacy/nn/SpatialCrossMapLRN.py.
 
 import torch
 from torch.legacy.nn.Module import Module
