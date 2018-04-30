@@ -287,7 +287,7 @@ if __name__ == '__main__':
     print(f)
     for i in range(f_736.size(0) - 1):
         for j in range(i + 1, f_736.size(0)):
-            df = f_376[i] - f_376[j]
+            df = f_736[i] - f_736[j]
             print(img_paths[i].split('/')[-1], img_paths[j].split('/')[-1], torch.dot(df, df))
 
     # in OpenFace's sample code, cosine distance is usually used for f (128d).
