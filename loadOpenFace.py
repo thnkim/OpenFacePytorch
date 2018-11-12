@@ -9,7 +9,10 @@ from collections import OrderedDict
 try:
     from . SpatialCrossMapLRN_temp import SpatialCrossMapLRN_temp
 except:
-    from SpatialCrossMapLRN_temp import SpatialCrossMapLRN_temp
+    try:
+        from SpatialCrossMapLRN_temp import SpatialCrossMapLRN_temp
+    except:
+        SpatialCrossMapLRN_temp = nn.LocalResponseNorm
 import os
 import time
 
