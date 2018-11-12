@@ -12,7 +12,7 @@ except:
     try:
         from SpatialCrossMapLRN_temp import SpatialCrossMapLRN_temp
     except:
-        SpatialCrossMapLRN_temp = nn.LocalResponseNorm
+        SpatialCrossMapLRN_temp = None
 import os
 import time
 
@@ -47,7 +47,10 @@ def BatchNorm(dim):
     return l
 
 def CrossMapLRN(size, alpha, beta, k=1.0, gpuDevice=0):
-    lrn = SpatialCrossMapLRN_temp(size, alpha, beta, k, gpuDevice=gpuDevice)
+    if SpatialCrossMapLRN_temp is not None:
+        lrn = SpatialCrossMapLRN_temp(size, alpha, beta, k, gpuDevice=gpuDevice)
+    else:
+        lrn = nn.LocalResponseNorm(size, alpha, beta, k)
     n = Lambda( lambda x,lrn=lrn: Variable(lrn.forward(x.data).cuda(gpuDevice)) if x.data.is_cuda else Variable(lrn.forward(x.data)) )
     return n
 
