@@ -49,9 +49,9 @@ def BatchNorm(dim):
 def CrossMapLRN(size, alpha, beta, k=1.0, gpuDevice=0):
     if SpatialCrossMapLRN_temp is not None:
         lrn = SpatialCrossMapLRN_temp(size, alpha, beta, k, gpuDevice=gpuDevice)
+        n = Lambda( lambda x,lrn=lrn: Variable(lrn.forward(x.data).cuda(gpuDevice)) if x.data.is_cuda else Variable(lrn.forward(x.data)) )
     else:
-        lrn = nn.LocalResponseNorm(size, alpha, beta, k)
-    n = Lambda( lambda x,lrn=lrn: Variable(lrn.forward(x.data).cuda(gpuDevice)) if x.data.is_cuda else Variable(lrn.forward(x.data)) )
+        n = nn.LocalResponseNorm(size, alpha, beta, k).cuda(gpuDevice)
     return n
 
 def Linear(in_dim, out_dim):
