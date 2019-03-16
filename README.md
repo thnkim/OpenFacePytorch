@@ -1,5 +1,8 @@
 # OpenFace for Pytorch
 
+* Disclaimer: This codes require the input face-images that are aligned and cropped in the same way of the original OpenFace. *
+
+
 I made a dirty code to use OpenFace in PyTorch.
 I converted '<a href="https://storage.cmusatyalab.org/openface-models/nn4.small2.v1.t7">nn4.small2.v1.t7</a>' to a .hdf5 file using '<a href="https://github.com/deepmind/torch-hdf5">torch-hdf5</a>'.
 Then I read layer informations from .hdf5 file, which can be displayed as follows:
