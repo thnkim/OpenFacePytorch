@@ -25,3 +25,7 @@ Simply,
 net = prepareOpenFace(useCuda=True, gpuDevice=0, useMultiGPU=False).eval()
 feature = net(input_tensor)    # input_tensor should be (batch_size, 3, 96, 96)
 ```
+
+
+* License
+This is released under Apache 2.0 license.
