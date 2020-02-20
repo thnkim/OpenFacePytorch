@@ -27,5 +27,5 @@ feature = net(input_tensor)    # input_tensor should be (batch_size, 3, 96, 96)
 ```
 
 
-* License
+* License <BR>
 This is released under Apache 2.0 license.
